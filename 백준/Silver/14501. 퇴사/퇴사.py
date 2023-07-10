@@ -1,19 +1,14 @@
-inf = -10**9
 n = int(input())
-t = [0]*(n+1)
-p = [0]*(n+1)
-for i in range(1, n+1):
-  t[i], p[i] = map(int,input().split())
-ans = 0
-def go(day, s):
-  global ans
-  if day == n+1:
-    if ans < s:
-      ans = s
-      return
-  if day >= n+1:
-    return
-  go(day+1,s)
-  go(day+t[day], s+p[day])
-go(1,0)
-print(ans)
+t = []
+p = []
+d = [0 for _ in range(n+1)]
+for _ in range(n):
+  T, P = map(int,input().split())
+  t.append(T)
+  p.append(P)
+for i in range(n-1,-1,-1):
+  if t[i] + i > n:
+    d[i] = d[i+1]
+  else:
+    d[i] = max(d[i+1], d[t[i]+i]+p[i])
+print(d[0])
