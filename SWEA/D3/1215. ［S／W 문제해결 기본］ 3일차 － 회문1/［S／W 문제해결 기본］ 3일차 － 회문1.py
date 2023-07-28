@@ -4,22 +4,13 @@ for t in range(1, 11):
   cnt = 0
   for i in range(8):
     for j in range(8-n+1):
-      result = 1
-      for k in range(n//2):
-        if arr[i][j+k] == arr[i][j+n-k-1]:
-          result *= 1
-        else:
-          result *= 0
-      if result == 1:
+      if arr[i][j:j+n] == arr[i][j:j+n][::-1]:
         cnt += 1
-  for i in range(8-n+1):
-    for j in range(8):
-      result = 1
-      for k in range(n//2):
-        if arr[i+k][j] == arr[i+n-k-1][j]:
-          result *= 1
-        else:
-          result *= 0
-      if result == 1:
+  for i in range(8):
+    for j in range(8-n+1):
+      ans = ''
+      for k in range(j,j+n):
+        ans += arr[k][i]
+      if ans == ans[::-1]:
         cnt += 1
   print(f'#{t} {cnt}')
