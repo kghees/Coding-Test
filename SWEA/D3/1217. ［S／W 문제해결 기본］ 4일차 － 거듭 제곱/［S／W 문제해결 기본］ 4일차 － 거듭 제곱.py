@@ -1,13 +1,10 @@
-def squre(cnt):
-  global result
-  if cnt == m:
-    return result
+def squre(n,m):
+  if m > 1:
+    return n*squre(n,m-1)
   else:
-    result *= n
-    squre(cnt+1)
+    return n
 for _ in range(1, 11):
   t = int(input())
   n, m = map(int,input().split())
-  result = 1
-  squre(0)
+  result = squre(n,m)
   print(f'#{t} {result}')
