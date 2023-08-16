@@ -1,15 +1,14 @@
-t = 10
-for t in range(1, 11):
+for t in range(10):
   n = int(input())
-  building = list(map(int,input().split()))
-  cnt = 0
-  lst = [-1,-2,1,2]
+  arr = list(map(int,input().split()))
+  lst = [-2,-1,1,2]
+  result = 0
   for i in range(2, n-2):
     x = []
     for j in lst:
-      x.append(building[i+j])
-    if max(x) > building[i]:
+      x.append(arr[i+j])
+    if max(x) > arr[i]:
       continue
     else:
-      cnt += building[i] - max(x)
-  print(f'#{t} {cnt}')
+      result += arr[i] - max(x)
+  print(f'#{t+1} {result}')
