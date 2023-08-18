@@ -1,9 +1,9 @@
 for t in range(int(input())):
-  b = input()
-  a = '0'
+  m = input()
   cnt = 0
-  for i in range(len(b)):
-    if b[i] != a:
-      a = b[i]
+  x = '0'
+  for i in range(len(m)):
+    if m[i] != x:
+      x = m[i]
       cnt += 1
   print(f'#{t+1} {cnt}')
