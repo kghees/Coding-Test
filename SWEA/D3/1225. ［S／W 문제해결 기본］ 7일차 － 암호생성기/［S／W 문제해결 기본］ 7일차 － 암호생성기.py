@@ -1,20 +1,17 @@
-for t in range(1, 11):
+for t in range(10):
   n = int(input())
-  arr = list(map(int,input().split()))
+  password = list(map(int,input().split()))
   i = 1
   while True:
-    num = arr.pop(0) - i
-    if num < 0:
-      num = 0
-      arr.append(num)
+    x = password.pop(0) - i
+    if x > 0:
+      password.append(x)
     else:
-      arr.append(num)
-    if num <= 0:
+      password.append(0)
+    if x <= 0:
       break
     i += 1
     if i > 5:
       i = 1
-  print(f'#{t}',end=' ')
-  for i in arr:
-    print(i,end=' ')
-  print()
+  print(f'#{t+1}',end=' ')
+  print(*password)
