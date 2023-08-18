@@ -1,13 +1,13 @@
-for t in range(1, 11):
+for t in range(10):
   n = int(input())
-  arr = [list(map(int,input().split())) for _ in range(n)]
+  m = [list(map(int,input().split())) for _ in range(n)]
   cnt = 0
   for i in range(n):
-    ans = []
+    agg = []
     for j in range(n):
-      if arr[j][i] == 1:
-        ans.append(arr[j][i])
-      if arr[j][i] == 2 and ans:
-        ans.clear()
+      if m[j][i] == 1:
+        agg.append(m[j][i])
+      if m[j][i] == 2 and agg:
+        agg.clear()
         cnt += 1
-  print(f'#{t} {cnt}')
+  print(f'#{t+1} {cnt}')
