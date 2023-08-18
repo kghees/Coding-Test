@@ -1,16 +1,15 @@
-t = int(input())
-for t in range(1, t+1):
+for t in range(int(input())):
   n = int(input())
-  arr = [list(map(int,input())) for _ in range(n)]
-  start,end = n//2, n//2
+  farm = [list(map(int,input())) for _ in range(n)]
+  a, b = n//2 , n//2
   result = 0
   for i in range(n):
-    for j in range(start, end+1):
-      result += arr[i][j]
-    if i < n // 2:
-      start -= 1
-      end += 1
+    for j in range(a, b+1):
+      result += farm[i][j]
+    if i < n//2:
+      a -= 1
+      b += 1
     else:
-      start += 1
-      end -= 1
-  print(f'#{t} {result}')
+      a += 1
+      b -= 1
+  print(f'#{t+1} {result}')
