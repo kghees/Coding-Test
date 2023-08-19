@@ -1,16 +1,15 @@
 for t in range(int(input())):
   n, l = map(int,input().split())
-  arr =[[0,0]]
+  arr = [[0,0]]
   for _ in range(n):
     arr.append(list(map(int,input().split())))
-  hambuger = [[0 for _ in range(l+1)] for _ in range(n+1)]
-  for i in range(1,n+1):
-    for j in range(1,l+1):
-      num = arr[i][0]
+  d = [[0 for _ in range(l+1)] for _ in range(n+1)]
+  for i in range(1, n+1):
+    for j in range(1, l+1):
+      score = arr[i][0]
       cal = arr[i][1]
-      
       if j < cal:
-        hambuger[i][j] = hambuger[i-1][j]
+        d[i][j] = d[i-1][j]
       else:
-        hambuger[i][j] = max(num + hambuger[i-1][j-cal], hambuger[i-1][j])
-  print(f'#{t+1} {hambuger[n][l]}')
+        d[i][j] = max(d[i-1][j-cal] + score, d[i-1][j])
+  print(f'#{t+1} {d[n][l]}')
