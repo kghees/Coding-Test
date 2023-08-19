@@ -1,9 +1,9 @@
-for t in range(1, 11):
-  n, s = input().split()
+for t in range(10):
+  n, password = input().split()
   n = int(n)
-  s = list(s)
+  password = list(password)
   stack = []
-  for i in s:
+  for i in password:
     if len(stack) == 0:
       stack.append(i)
     else:
@@ -11,7 +11,7 @@ for t in range(1, 11):
         stack.pop()
       else:
         stack.append(i)
-  print(f'#{t}',end=' ')
-  for j in stack:
-    print(j,end='')
+  print(f'#{t+1}',end=' ')
+  for i in stack:
+    print(i,end='')
   print()
