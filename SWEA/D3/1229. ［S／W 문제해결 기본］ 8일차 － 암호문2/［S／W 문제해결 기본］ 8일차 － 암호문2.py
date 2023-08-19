@@ -7,7 +7,7 @@ for t in range(1,11):
     if brr[i] == 'I':
       start = int(brr[i+1])
       end = int(brr[i+2])
-      num = list(map(int, brr[i+3:end+i+3]))
+      num = list(brr[i+3:end+i+3])
       arr[start:start] = num
     elif brr[i] == 'D':
       start = int(brr[i+1])
