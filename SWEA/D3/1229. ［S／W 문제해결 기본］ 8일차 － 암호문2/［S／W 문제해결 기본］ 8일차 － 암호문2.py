@@ -7,7 +7,7 @@ for t in range(10):
     if brr[i] == 'I':
       a = int(brr[i+1])
       b = int(brr[i+2])
-      num = list(map(int,brr[i+3:b+i+3]))
+      num = list(brr[i+3:i+3+b])
       arr[a:a] = num
     elif brr[i] == 'D':
       a = int(brr[i+1])
