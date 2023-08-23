@@ -1,8 +1,10 @@
 for t in range(int(input())):
   l,u,x = map(int,input().split())
+  result = 0
   if l > x:
-    print(f'#{t+1} {l-x}')
-  elif l <= x and u > x:
-    print(f'#{t+1} {0}')
-  elif u < x:
-    print(f'#{t+1} {-1}') 
+    result = l-x
+  elif l <= x <= u:
+    result = 0
+  else:
+    result = -1
+  print(f'#{t+1} {result}')
