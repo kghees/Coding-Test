@@ -1,12 +1,12 @@
 for t in range(int(input())):
-  n, a = input().split()
-  s = list(input().split())
+  a, b = input().split()
+  arr = list(input().split())
   num = ('ZRO','ONE','TWO','THR','FOR','FIV','SIX','SVN','EGT','NIN')
-  new_num = []
-  for i in range(int(a)):
-    new_num.append(num.index(s[i]))
-  new_num.sort()
-  for i in range(int(a)):
-    new_num[i] = num[new_num[i]]
+  gns = []
+  for i in range(int(b)):
+    gns.append(num.index(arr[i]))
+  gns.sort()
+  for j in range(int(b)):
+    gns[j] = num[gns[j]]
   print(f'#{t+1}')
-  print(*new_num)
+  print(*gns)
