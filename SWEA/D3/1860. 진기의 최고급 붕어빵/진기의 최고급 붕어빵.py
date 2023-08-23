@@ -4,8 +4,8 @@ for t in range(int(input())):
   a.sort()
   result = 'Possible'
   for i in range(n):
-    cnt = (a[i] // m)*k - (i+1)
-    if cnt < 0:
+    x = (a[i]//m)*k - (i+1)
+    if x < 0:
       result = 'Impossible'
       break
   print(f'#{t+1} {result}')
