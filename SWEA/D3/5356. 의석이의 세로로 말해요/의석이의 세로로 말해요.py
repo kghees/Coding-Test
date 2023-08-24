@@ -4,9 +4,9 @@ for t in range(int(input())):
   for i in range(len(arr)):
     for j in range(len(arr[i])):
       s[i][j] = arr[i][j]
-  ans = ''
-  for k in range(15):
-    for l in range(15):
-      if s[l][k] != 0:
-        ans += s[l][k]
-  print(f'#{t+1} {ans}')
+  word = ''
+  for i in range(15):
+    for j in range(15):
+      if s[j][i] != 0:
+        word += s[j][i]
+  print(f'#{t+1} {word}')
