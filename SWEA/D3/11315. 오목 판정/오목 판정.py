@@ -5,7 +5,7 @@ def omok():
     for j in range(n):
       if arr[i][j] == 'o':
         for k in range(4):
-          x, y = i, j
+          x, y = i,j
           cnt = 0
           while 0 <= x < n and 0 <= y < n and arr[x][y] == 'o':
             cnt += 1
@@ -16,5 +16,5 @@ def omok():
   return 'NO'
 for t in range(int(input())):
   n = int(input())
-  arr = [input() for _ in range(n)]
+  arr = [list(input()) for _ in range(n)]
   print(f'#{t+1} {omok()}')
