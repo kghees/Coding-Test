@@ -1,17 +1,15 @@
-import sys
-input = sys.stdin.readline
-left = list(input().strip())
+left = list(input())
 right = []
-n = int(input())
-for i in range(n):
-  m = input().split()
-  if m[0] == 'L' and left:
+m = int(input())
+for _ in range(m):
+  arr = list(input().split())
+  if left and arr[0] == 'L':
     right.append(left.pop())
-  elif m[0] == 'D' and right:
+  elif right and arr[0] == 'D':
     left.append(right.pop())
-  elif m[0] == 'B' and left:
+  elif left and arr[0] == 'B':
     left.pop()
-  elif m[0] == 'P':
-    left.append(m[1])
+  elif arr[0] == 'P':
+    left.append(arr[1])
 right.reverse()
-print(''.join(left + right))
+print(''.join(left+right))
