@@ -4,10 +4,13 @@ for _ in range(n):
   s = input()
   stack = []
   for i in range(len(s)):
-    if stack and s[i] == stack[-1]:
-      stack.pop()
+    if stack:
+      if stack[-1] == s[i]:
+        stack.pop()
+      else:
+        stack.append(s[i])
     else:
       stack.append(s[i])
-  if len(stack) == 0:
+  if not stack:
     cnt += 1
-print(cnt) 
+print(cnt)
