@@ -14,12 +14,9 @@ for _ in range(int(input())):
   n = int(input())
   cnt = 0
   for i in arr:
-    if i > n:
+    if n - i >= 2 and i <= n - i:
+      if a[n-i] == False:
+        cnt += 1
+    else:
       break
-    if a[n-i] == False:
-      cnt += 1
-  if cnt % 2 == 0:
-    cnt = cnt // 2
-  else:
-    cnt = cnt // 2 +1
   print(cnt)
