@@ -1,12 +1,16 @@
+def pn(i):
+  if i < 2:
+    return False
+  x = 2
+  while x * x <= i:
+    if i % x == 0:
+      return False
+    x += 1
+  return True
 n = int(input())
-s = list(map(int,input().split()))
-result = 0
-for i in s:
-  cnt = 0
-  for j in range(2, i + 1):
-    if i % j == 0:
-      cnt += 1
-    
-  if cnt == 1:
-    result += 1
-print(result)
+a = list(map(int,input().split()))
+cnt = 0
+for i in a:
+  if pn(i):
+    cnt += 1
+print(cnt)
