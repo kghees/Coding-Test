@@ -1,13 +1,9 @@
-def go(s, goal):
-  if s > goal:
-    return 0
-  if s == goal:
-    return 1
-  now = 0
-  for i in range(1, 4):
-    now += go(s+i,goal)
-  return now
-t = int(input())
-for _ in range(t):
+for _ in range(int(input())):
   n = int(input())
-  print(go(0,n))
+  d = [0]*11
+  d[1] = 1
+  d[2] = 2
+  d[3] = 4
+  for i in range(4, 11):
+    d[i] = d[i-1] + d[i-2] + d[i-3]
+  print(d[n])
