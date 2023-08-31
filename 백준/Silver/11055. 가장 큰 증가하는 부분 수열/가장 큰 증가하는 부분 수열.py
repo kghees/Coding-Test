@@ -5,6 +5,6 @@ for i in range(n):
   d[i] = a[i]
 for i in range(1, n):
   for j in range(i):
-    if a[i] > a[j]:
-      d[i] = max(d[i],d[j]+a[i])
+    if a[i] > a[j] and d[i] < d[j]+a[i]:
+      d[i] = d[j]+a[i]
 print(max(d))
