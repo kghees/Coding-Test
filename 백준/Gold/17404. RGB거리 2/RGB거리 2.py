@@ -1,14 +1,19 @@
 n = int(input())
-rgb = [list(map(int,input().split())) for _ in range(n)]
-ans = 1000*1000 + 1
+a = [[0,0,0]] + [list(map(int,input().split())) for _ in range(n)]
+d = [[0]*3 for _ in range(n+1)]
+ans = 1000*1000+1
 for i in range(3):
-  d = [[ans,ans,ans] for _ in range(n)]
-  d[0][i] = rgb[0][i]
-  for j in range(1, n):
-    d[j][0] = min(d[j-1][1], d[j-1][2]) + rgb[j][0]
-    d[j][1] = min(d[j-1][0],d[j-1][2]) + rgb[j][1]
-    d[j][2] = min(d[j-1][0], d[j-1][1]) + rgb[j][2]
-  for k in range(3):
-    if i != k:
-      ans = min(ans,d[-1][k])
+  for j in range(3):
+    if i == j:
+      d[1][j] = a[1][j]
+    else:
+      d[1][j] = ans
+  for k in range(2, n+1):
+    d[k][0] = min(d[k-1][1], d[k-1][2]) + a[k][0]
+    d[k][1] = min(d[k-1][0], d[k-1][2]) + a[k][1]
+    d[k][2] = min(d[k-1][0],d[k-1][1]) + a[k][2]
+  for l in range(3):
+    if i == l:
+      continue
+    ans = min(ans, d[n][l])
 print(ans)
