@@ -1,17 +1,17 @@
 n, m = map(int,input().split())
-num = list(map(int,input().split()))
-num.sort()
-a = [0]*m
+a = [0]+list(map(int,input().split()))
+a.sort()
 c = [False]*(n+1)
-def go(index, n, m):
+arr = [0]*m
+def go(index,n,m):
   if index == m:
-    print(*a)
+    print(*arr)
     return
-  for i in range(n):
+  for i in range(1, n+1):
     if c[i]:
       continue
+    arr[index] = a[i]
     c[i] = True
-    a[index] = num[i]
     go(index+1,n,m)
     c[i] = False
 go(0,n,m)
