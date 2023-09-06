@@ -1,7 +1,7 @@
-n,m = map(int,input().split())
-a = [0]*m
+n, m = map(int,input().split())
 c = [False]*(n+1)
-def go(index,n, m):
+a = [0]*m
+def go(index,n,m):
   if index == m:
     print(*a)
     return
@@ -10,6 +10,6 @@ def go(index,n, m):
       continue
     c[i] = True
     a[index] = i
-    go(index+1, n, m)
+    go(index+1,n,m)
     c[i] = False
 go(0,n,m)
