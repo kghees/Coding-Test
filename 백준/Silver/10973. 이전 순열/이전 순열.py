@@ -1,8 +1,6 @@
-import sys
-input = sys.stdin.readline
 def previous_permutation(a):
   i = len(a) - 1
-  while i > 0 and a[i-1] <= a[i]:
+  while i > 0 and a[i] >= a[i-1]:
     i -= 1
   if i <= 0:
     return False
