@@ -1,26 +1,26 @@
-def good(x,y,op):
-  if op == '<':
+def good(x,y,ok):
+  if ok == '<':
     if x > y:
       return False
-  if op == '>':
+  elif ok == '>':
     if x < y:
       return False
   return True
-def go(index, num):
+def go(index,num):
   if index == k+1:
     ans.append(num)
     return
   for i in range(10):
     if check[i]:
       continue
+    check[i] = True
     if index == 0 or good(num[index-1],str(i),s[index-1]):
-      check[i] = True
       go(index+1,num+str(i))
-      check[i] = False
+    check[i] = False
 k = int(input())
 s = input().split()
-ans = []
 check = [False]*10
+ans = []
 go(0,'')
 ans.sort()
 print(ans[-1])
