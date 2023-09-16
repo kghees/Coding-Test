@@ -4,7 +4,7 @@ d = ['1','2','3','4','5','6','7','8','9']
 num = list(permutations(d,3))
 for _ in range(n):
   a,s,b = map(int,input().split())
-  a = list(str(a))
+  a = str(a)
   cnt = 0
   for i in range(len(num)):
     strike,ball = 0,0
