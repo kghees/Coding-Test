@@ -1,6 +1,6 @@
 x = input()
 cnt = 0
-while int(x) >= 10:
+while len(x) >= 2:
   num = 0
   for i in x:
     num += int(i)
