@@ -1,32 +1,30 @@
-from collections import deque
 dx = [0,0,1,-1]
 dy = [1,-1,0,0]
-def bfs(d,a,b):
-  n = len(d)
-  q = deque()
-  q.append((a,b))
-  d[a][b] = 0
-  count = 1
-  while q:
-    x,y = q.popleft()
-    for i in range(4):
-      nx = x + dx[i]
-      ny = y + dy[i]
-      if nx < 0 or nx >= n or ny < 0 or ny >= n:
-        continue
-      if d[nx][ny] == 1:
-        d[nx][ny] = 0
-        q.append((nx,ny))
-        count += 1
-  return count
+def dfs(a,b):
+  if a < 0 or a >= n or b < 0 or b >= n:
+    return False
+  if d[a][b] == 1:
+    global cnt
+    cnt += 1
+    d[a][b] = 0
+    for k in range(4):
+      nx = a + dx[k]
+      ny = b + dy[k]
+      dfs(nx,ny)
+    return True
+  return False 
 n = int(input())
 d = [list(map(int,input())) for _ in range(n)]
-cnt = []
+num = []
+result = 0
+cnt = 0
 for i in range(n):
   for j in range(n):
-    if d[i][j] == 1:
-      cnt.append(bfs(d,i,j))
-cnt.sort()
-print(len(cnt))
-for i in cnt:
+    if dfs(i,j):
+      num.append(cnt)
+      result += 1
+      cnt = 0
+num.sort()
+print(result)
+for i in num:
   print(i)
