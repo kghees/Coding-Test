@@ -1,8 +1,6 @@
 for t in range(int(input())):
   n = int(input())
-  arr = list(map(int,input().split()))
-  arr.sort()
+  a = list(map(int,input().split()))
+  a.sort()
   print(f'#{t+1}',end=' ')
-  for i in arr:
-    print(i,end=' ')
-  print()
+  print(*a)
