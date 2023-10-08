@@ -1,9 +1,10 @@
-for t in range(10):
+for t in range(1,11):
   n = int(input())
-  dump = list(map(int,input().split()))
-  dump.sort()
+  a = list(map(int,input().split()))
+  a.sort()
   for i in range(n):
-    dump[0] += 1
-    dump[-1] -= 1
-    dump.sort()
-  print(f'#{t+1} {dump[-1] - dump[0]}')
+    a[-1] -= 1
+    a[0] += 1
+    a.sort()
+  result = a[-1] - a[0]
+  print(f'#{t} {result}')
