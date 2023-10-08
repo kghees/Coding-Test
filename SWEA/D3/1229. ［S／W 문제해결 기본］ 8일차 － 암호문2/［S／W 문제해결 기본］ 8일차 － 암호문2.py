@@ -1,19 +1,17 @@
-for t in range(10):
+for t in range(1,11):
   n = int(input())
-  arr = list(map(int,input().split()))
+  a = list(map(int,input().split()))
   m = int(input())
-  brr = list(input().split())
-  for i in range(len(brr)):
-    if brr[i] == 'I':
-      a = int(brr[i+1])
-      b = int(brr[i+2])
-      num = list(brr[i+3:i+3+b])
-      arr[a:a] = num
-    elif brr[i] == 'D':
-      a = int(brr[i+1])
-      b = int(brr[i+2])
-      del arr[a:a+b]
-  print(f'#{t+1}',end=' ')
-  for i in arr[:10]:
-    print(i,end=' ')
-  print()
+  s = list(input().split())
+  for i in range(len(s)):
+    if s[i] == 'I':
+      x = int(s[i+1])
+      y = int(s[i+2])
+      num = list(s[i+3:i+3+y])
+      a[x:x] = num
+    elif s[i] == 'D':
+      x = int(s[i+1])
+      y = int(s[i+2])
+      del a[x:x+y]
+  print(f'#{t}',end=' ')
+  print(*a[:10])
