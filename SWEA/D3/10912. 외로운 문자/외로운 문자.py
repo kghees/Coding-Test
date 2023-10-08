@@ -1,18 +1,13 @@
 for t in range(int(input())):
-  s = input()
-  num = [0]*100
-  for i in range(len(s)):
-    num[i] = s.count(s[i])
-  ans = []
-  for i in range(len(s)):
-    if num[i] % 2 != 0:
-      if s[i] not in ans:
-        ans.append(s[i])
-  ans.sort()
-  if ans:
-    print(f'#{t+1}',end=' ')
-    for i in ans:
-      print(i,end='')
-    print()
+  s = list(input())
+  s.sort()
+  stack = []
+  for i in s:
+    if stack and stack[-1] == i:
+      stack.pop()
+    else:
+      stack.append(i)
+  if stack:
+    print(f'#{t+1} {"".join(stack)}')
   else:
     print(f'#{t+1} Good')
