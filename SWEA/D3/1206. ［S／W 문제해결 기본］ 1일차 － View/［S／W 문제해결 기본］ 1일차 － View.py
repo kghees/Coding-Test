@@ -1,14 +1,15 @@
-for t in range(10):
+for t in range(1,11):
   n = int(input())
-  arr = list(map(int,input().split()))
-  lst = [-2,-1,1,2]
-  result = 0
-  for i in range(2, n-2):
-    x = []
-    for j in lst:
-      x.append(arr[i+j])
-    if max(x) > arr[i]:
-      continue
+  a = list(map(int,input().split()))
+  d = [-2,-1,1,2]
+  cnt = 0
+  for i in range(2,n-2):
+    arr = []
+    for k in range(4):
+      arr.append(a[i+d[k]])
+    arr.sort()
+    if arr[-1] < a[i]:
+      cnt += a[i] - arr[-1]
     else:
-      result += arr[i] - max(x)
-  print(f'#{t+1} {result}')
+      continue
+  print(f'#{t} {cnt}')
