@@ -1,28 +1,15 @@
-def dfs(start,ans,x):
+def dfs(x,ans):
   global cnt
-  if len(ans) == x:
-    num = [0]*26
-    for i in ans:
-      for j in i:
-        j = j.lower()
-        if 0 <= ord(j) - 97 < 26:
-          num[ord(j) - ord('a')] = 1
-    if sum(num) == 26:
+  if x == n:
+    k = set(ans)
+    if len(k) == 26:
       cnt += 1
-    return
-  for i in range(start,n):
-    if check[i] == False:
-      check[i] = True
-      ans.append(a[i])
-      dfs(i+1,ans,x)
-      ans.pop()
-      check[i] = False
+  else:
+    dfs(x+1,ans+a[x])
+    dfs(x+1,ans)
 for t in range(int(input())):
   n = int(input())
-  a = [input() for _ in range(n)]
-  e = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  a = [input().rstrip() for _ in range(n)]
   cnt = 0
-  check = [False]*n
-  for x in range(1, n+1):
-    dfs(0,[],x)
+  dfs(0,'')
   print(f'#{t+1} {cnt}')
