@@ -1,88 +1,87 @@
-#1873 상호의 배틀필드
 for t in range(int(input())):
-  h, w = map(int,input().split())
-  data = []
-  car_x, car_y = 0, 0
-  car_d = ''
+  h,w = map(int,input().split())
+  a = []
+  x,y = 0,0
+  d = ''
   for i in range(h):
-    arr = list(input())
-    data.append(arr)
-    for j in range(len(arr)):
-      if arr[j] in ['^', 'v', '<', '>']:
-        car_x, car_y = i, j
-        car_d = arr[j]
+    k = list(input())
+    a.append(k)
+    for j in range(len(k)):
+      if k[j] in ['^','v','<','>']:
+        x,y = i,j
+        d = k[j]
   n = int(input())
-  nrr = list(input())
+  s = list(input())
   for i in range(n):
-    if nrr[i] == 'S':
-      if car_d == '^':
-        for j in range(car_x-1,-1,-1):
-          if data[j][car_y] == '*':
-            data[j][car_y] = '.'
+    if s[i] == 'S':
+      if d == '^':
+        for j in range(x-1,-1,-1):
+          if a[j][y] == '*':
+            a[j][y] = '.'
             break
-          elif data[j][car_y] == '#':
+          elif a[j][y] == '#':
             break
-      elif car_d == 'v':
-        for j in range(car_x+1, h):
-          if data[j][car_y] == '*':
-            data[j][car_y] = '.'
+      elif d == 'v':
+        for j in range(x+1,h):
+          if a[j][y] == '*':
+            a[j][y] = '.'
             break
-          elif data[j][car_y] == '#':
+          elif a[j][y] == '#':
             break
-      elif car_d == '<':
-        for j in range(car_y-1,-1,-1):
-          if data[car_x][j] == '*':
-            data[car_x][j] = '.'
+      elif d == '<':
+        for j in range(y-1,-1,-1):
+          if a[x][j] == '*':
+            a[x][j] = '.'
             break
-          elif data[car_x][j] == '#':
+          elif a[x][j] == '#':
             break
-      elif car_d == '>':
-        for j in range(car_y+1, w):
-          if data[car_x][j] == '*':
-            data[car_x][j] = '.'
+      elif d == '>':
+        for j in range(y+1,w):
+          if a[x][j] == '*':
+            a[x][j] = '.'
             break
-          elif data[car_x][j] == '#':
+          elif a[x][j] == '#':
             break
-    elif nrr[i] == 'U':
-      car_d = '^'
-      nx = car_x -1
+    elif s[i] == 'U':
+      d = '^'
+      nx = x - 1
       if nx < 0 or nx >= h:
-        data[car_x][car_y] = car_d
+        a[x][y] = d
         continue
-      if data[nx][car_y] == '.':
-        data[car_x][car_y] = '.'
-        car_x = nx
-      data[car_x][car_y] = car_d
-    elif nrr[i] == 'D':
-      car_d = 'v'
-      nx = car_x + 1
+      if a[nx][y] == '.':
+        a[x][y] = '.'
+        x = nx
+      a[x][y] = d
+    elif s[i] == 'D':
+      d = 'v'
+      nx = x + 1
       if nx < 0 or nx >= h:
-        data[car_x][car_y] = car_d
+        a[x][y] = d
         continue
-      if data[nx][car_y] == '.':
-        data[car_x][car_y] = '.'
-        car_x = nx
-      data[car_x][car_y] = car_d
-    elif nrr[i] == 'L':
-      car_d = '<'
-      ny = car_y - 1
+      if a[nx][y] == '.':
+        a[x][y] = '.'
+        x = nx
+      a[x][y] = d
+    elif s[i] == 'L':
+      d = '<'
+      ny = y - 1
       if ny < 0 or ny >= w:
-        data[car_x][car_y] = car_d
+        a[x][y] = d
         continue
-      if data[car_x][ny] == '.':
-        data[car_x][car_y] = '.'
-        car_y = ny
-      data[car_x][car_y] = car_d
-    elif nrr[i] == 'R':
-      car_d = '>'
-      ny = car_y + 1
+      if a[x][ny] == '.':
+        a[x][y] = '.'
+        y = ny
+      a[x][y] = d
+    elif s[i] == 'R':
+      d = '>'
+      ny = y + 1
       if ny < 0 or ny >= w:
-        data[car_x][car_y] = car_d
+        a[x][y] = d
         continue
-      if data[car_x][ny] == '.':
-        data[car_x][car_y] = '.'
-        car_y = ny
-      data[car_x][car_y] = car_d
+      if a[x][ny] == '.':
+        a[x][y] = '.'
+        y = ny
+      a[x][y] = d
   print(f'#{t+1}',end=' ')
   for i in range(h):
-    print(''.join(data[i]))
+    print(''.join(a[i]))
