@@ -1,5 +1,12 @@
-T = int(input())
-for tc in range(T):
-  N = int(input())
-  num1,num2 = N*9, N*8
-  print("#{} {} {}".format(tc+1, num1, num2))
+def check(x):
+  for i in range(2,int(x**(1/2))):
+    if x % i == 0:
+      return False
+  return True
+for t in range(int(input())):
+  n = int(input())
+  for i in range(n, 1000000001):
+    if not check(i):
+      if (i-n) > 3 and not check(i-n):
+        print(f'#{t+1} {i} {i-n}')
+        break
