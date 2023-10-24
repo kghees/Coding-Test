@@ -1,4 +1,5 @@
-def check(d,cnt,n):
+def check():
+  global cnt
   for i in range(n):
     for j in range(n):
       if d[i][j] == 1:
@@ -16,7 +17,7 @@ def check(d,cnt,n):
             break
         if down != right:
           return False
-        for x in range(i, i+down+1):
+        for x in range(i,i+down+1):
           for y in range(j, j+right+1):
             if d[x][y] == 1:
               cnt -= 1
@@ -35,8 +36,8 @@ for t in range(int(input())):
       if a[i][j] == '#':
         d[i][j] = 1
         cnt += 1
-  res = check(d,cnt,n)
+  res = check()
   if res:
     print(f'#{t+1} yes')
   else:
-    print(f'#{t+1} no')
+    print(f'#{t+1} no')                                    
