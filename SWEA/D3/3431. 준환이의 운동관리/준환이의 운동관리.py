@@ -3,6 +3,6 @@ for t in range(int(input())):
   if l > x:
     print(f'#{t+1} {l-x}')
   elif l <= x <= u:
-    print(f'#{t+1} {0}')
-  else:
-    print(f'#{t+1} {-1}')
+    print(f'#{t+1} 0')
+  elif u < x:
+    print(f'#{t+1} -1')
