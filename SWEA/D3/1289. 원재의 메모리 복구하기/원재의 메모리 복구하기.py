@@ -1,9 +1,9 @@
 for t in range(int(input())):
   n = input()
-  x = '0'
   cnt = 0
+  x = '0'
   for i in n:
-    if x != i:
+    if i != x:
       x = i
       cnt += 1
-  print(f'#{t+1} {cnt}')
+  print(f'#{t+1} {cnt}') 
