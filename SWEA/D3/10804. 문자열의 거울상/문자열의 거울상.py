@@ -1,14 +1,14 @@
 for t in range(int(input())):
   s = input()
-  s = s[::-1]
-  ans = ''
+  res = []
   for i in s:
-    if i == 'q':
-      ans += 'p'
+    if i == 'b':
+      res.append('d')
     elif i == 'p':
-      ans += 'q'
-    elif i == 'b':
-      ans += 'd'
+      res.append('q')
+    elif i == 'q':
+      res.append('p')
     elif i == 'd':
-      ans += 'b'
-  print(f'#{t+1} {ans}')
+      res.append('b')
+  res = res[::-1]
+  print(f'#{t+1}',''.join(res))
