@@ -6,5 +6,4 @@ for t in range(1,11):
     a[-1] -= 1
     a[0] += 1
     a.sort()
-  result = a[-1] - a[0]
-  print(f'#{t} {result}')
+  print(f'#{t} {a[-1]-a[0]}')
