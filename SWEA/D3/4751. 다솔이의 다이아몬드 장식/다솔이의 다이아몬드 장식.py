@@ -1,13 +1,13 @@
 for t in range(int(input())):
   s = input()
-  a = '..#.'
-  b = '.#.#'
-  c = '#.'
-  d = '.'
-  print(a*len(s)+'.')
-  print(b*len(s)+'.')
+  x = '..#.'
+  y = '.#.#'
+  z = '#.'
+  w = '.'
+  print(x*len(s)+w)
+  print(y*len(s)+w)
   for i in s:
-    print(c+i+d,end='')
+    print(z+i+w,end='')
   print('#')
-  print(b*len(s)+'.')
-  print(a*len(s)+'.')
+  print(y*len(s)+w)
+  print(x*len(s)+w)
