@@ -5,8 +5,8 @@ for t in range(int(input())):
     for j in range(len(a[i])):
       s[i][j] = a[i][j]
   res = []
-  for i in range(len(s[i])):
-    for j in range(len(s)):
+  for i in range(15):
+    for j in range(5):
       if s[j][i] != 0:
         res.append(s[j][i])
   print(f'#{t+1}',''.join(res))
