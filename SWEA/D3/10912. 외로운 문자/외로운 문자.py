@@ -8,6 +8,6 @@ for t in range(int(input())):
     else:
       stack.append(i)
   if stack:
-    print(f'#{t+1} {"".join(stack)}')
+    print(f'#{t+1}',''.join(stack))
   else:
     print(f'#{t+1} Good')
