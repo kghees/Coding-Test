@@ -1,11 +1,8 @@
 for t in range(int(input())):
   n,q = map(int,input().split())
-  num = [0]*n
-  for i in range(1,q+1):
+  d = [0]*n
+  for i in range(q):
     l,r = map(int,input().split())
-    for j in range(l,r+1):
-      num[j-1] = i
-  print(f'#{t+1}',end=' ')
-  for i in num:
-    print(i,end=' ')
-  print()
+    for j in range(l-1,r):
+      d[j] = i+1
+  print(f'#{t+1}',*d)
