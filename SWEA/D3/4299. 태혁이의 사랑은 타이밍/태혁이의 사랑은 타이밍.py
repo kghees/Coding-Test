@@ -1,21 +1,15 @@
 for t in range(int(input())):
   d,h,m = map(int,input().split())
-  a,b,c = 11,11,11
-  result = 0
-  if m < c:
+  res = 0
+  if m - 11 < 0:
     h -= 1
     m += 60
-  if h < b:
+  if h - 11 < 0:
     d -= 1
     h += 24
-  if d < a:
-    print(f'#{t+1} -1')
+  if d - 11 < 0:
+    res = -1
+    print(f'#{t+1} {res}')
     break
-  x = d-a
-  y = h-b
-  z = m-c
-  if x < 0:
-    print(f'#{t+1} -1')
-  else:
-    result += (x*24*60) + (y*60) + z
-    print(f'#{t+1} {result}')
+  res += (d-11)*24*60 + (h-11)*60 + (m-11)
+  print(f'#{t+1} {res}')
