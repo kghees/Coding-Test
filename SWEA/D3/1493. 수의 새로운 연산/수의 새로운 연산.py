@@ -14,11 +14,11 @@ for t in range(int(input())):
   for i in range(1,301):
     for j in range(1,301):
       if a[i][j] == p:
-        x = i
-        y = j
+        x,y = i,j
       if a[i][j] == q:
-        w = i
-        z = j
-  k = x+w
+        w,z = i,j
+      if x != 0 and y != 0 and w != 0 and z != 0:
+        break
+  b = x+w
   c = y+z
-  print(f'#{t+1} {a[k][c]}')
+  print(f'#{t+1} {a[b][c]}')
