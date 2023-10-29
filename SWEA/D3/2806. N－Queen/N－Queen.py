@@ -1,20 +1,20 @@
-def visit(x):
+def check(x):
   for i in range(x):
-    if check[x] == check[i] or abs(check[x]-check[i]) == x-i:
+    if d[x] == d[i] or abs(d[x]-d[i]) == x-i:
       return False
   return True
 def dfs(x):
-  global result
+  global cnt
   if x == n:
-    result += 1
+    cnt += 1
   else:
     for i in range(n):
-      check[x] = i
-      if visit(x):
+      d[x] = i
+      if check(x):
         dfs(x+1)
 for t in range(int(input())):
   n = int(input())
-  check = [0]*n
-  result = 0
+  d = [0]*n
+  cnt = 0
   dfs(0)
-  print(f'#{t+1} {result}')
+  print(f'#{t+1} {cnt}')
