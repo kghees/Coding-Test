@@ -1,9 +1,9 @@
 for t in range(int(input())):
   s = input()
-  e = 'abcdefghijklmnopqrstuvwxyz'
+  a = 'abcdefghijklmnopqrstuvwxyz'
   cnt = 0
   for i in range(len(s)):
-    if s[i] == e[i]:
+    if s[i] == a[i]:
       cnt += 1
     else:
       break
