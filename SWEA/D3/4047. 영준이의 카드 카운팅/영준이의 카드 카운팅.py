@@ -1,33 +1,20 @@
 for t in range(int(input())):
-  s = input()
-  a,b,c,d = 13,13,13,13
+  x = input()
+  s,d,h,c = 13,13,13,13
   check = True
-  for i in range(len(s)):
-    if s[i] == 'S':
-      if s[i:i+3] in s[i+3:]:
-        check = False
-        break
-      else:
-        a -= 1
-    elif s[i] == 'D':
-      if s[i:i+3] in s[i+3:]:
-        check = False
-        break
-      else:
-        b -= 1
-    elif s[i] == 'H':
-      if s[i:i+3] in s[i+3:]:
-        check = False
-        break
-      else:
-        c -= 1
-    elif s[i] == 'C':
-      if s[i:i+3] in s[i+3:]:
-        check = False
-        break
-      else:
-        d -= 1
+  for i in range(0,len(x),3):
+    if x[i] == 'S' and x[i:i+3] not in x[i+3:]:
+      s -= 1
+    elif x[i] == 'D' and x[i:i+3] not in x[i+3:]:
+      d -= 1
+    elif x[i] == 'H' and x[i:i+3] not in x[i+3:]:
+      h -= 1
+    elif x[i] == 'C' and x[i:i+3] not in x[i+3:]:
+      c -= 1
+    else:
+      check = False
+      break
   if check:
-    print(f'#{t+1} {a} {b} {c} {d}')
+    print(f'#{t+1} {s} {d} {h} {c}')
   else:
     print(f'#{t+1} ERROR')
