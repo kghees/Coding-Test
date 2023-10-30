@@ -1,7 +1,6 @@
 for t in range(int(input())):
   d,l,n = map(int,input().split())
-  result = 0
-  x = l*0.01
+  res = 0
   for i in range(n):
-    result += d*(1+i*x)
-  print(f'#{t+1} {int(result)}')
+    res += d*(1+i*(l*0.01))
+  print(f'#{t+1} {int(res)}')
