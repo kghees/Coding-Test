@@ -1,21 +1,16 @@
 for t in range(int(input())):
-  n = list(input())
-  num = int(''.join(n))
-  n.sort()
+  n = input()
   check = False
+  num = n
   i = 2
-  m = int(''.join(sorted(n, reverse=True)))
-  while (i*num <= m):
-    x = i*num
-    y = str(x)
-    arr = []
-    for j in y:
-      arr.append(j)
-    arr.sort()
-    if n == arr:
+  while True:
+    num = list(str(int(n)*i))
+    i += 1
+    if len(n) != len(num):
+      break
+    if set(n) == set(num):
       check = True
       break
-    i += 1
   if check:
     print(f'#{t+1} possible')
   else:
