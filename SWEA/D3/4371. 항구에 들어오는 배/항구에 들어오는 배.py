@@ -6,7 +6,7 @@ for t in range(int(input())):
   for i in range(1, len(a)):
     if a[i] in ans:
       continue
-    x = a[i] - 1
+    x = a[i]-1
     for j in range(x+1,a[-1]+1,x):
       ans.append(j)
     cnt += 1
