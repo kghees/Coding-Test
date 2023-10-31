@@ -4,16 +4,16 @@ for t in range(int(input())):
   x,y = 0,0
   d = ''
   for i in range(h):
-    k = list(input())
-    a.append(k)
-    for j in range(len(k)):
-      if k[j] in ['^','v','<','>']:
+    s = list(input())
+    a.append(s)
+    for j in range(len(s)):
+      if s[j] in ['^','v','>','<']:
         x,y = i,j
-        d = k[j]
+        d = s[j]
   n = int(input())
-  s = list(input())
+  m = list(input())
   for i in range(n):
-    if s[i] == 'S':
+    if m[i] == 'S':
       if d == '^':
         for j in range(x-1,-1,-1):
           if a[j][y] == '*':
@@ -42,9 +42,9 @@ for t in range(int(input())):
             break
           elif a[x][j] == '#':
             break
-    elif s[i] == 'U':
+    elif m[i] == 'U':
       d = '^'
-      nx = x - 1
+      nx = x-1
       if nx < 0 or nx >= h:
         a[x][y] = d
         continue
@@ -52,9 +52,9 @@ for t in range(int(input())):
         a[x][y] = '.'
         x = nx
       a[x][y] = d
-    elif s[i] == 'D':
+    elif m[i] == 'D':
       d = 'v'
-      nx = x + 1
+      nx = x+1
       if nx < 0 or nx >= h:
         a[x][y] = d
         continue
@@ -62,9 +62,9 @@ for t in range(int(input())):
         a[x][y] = '.'
         x = nx
       a[x][y] = d
-    elif s[i] == 'L':
+    elif m[i] == 'L':
       d = '<'
-      ny = y - 1
+      ny = y-1
       if ny < 0 or ny >= w:
         a[x][y] = d
         continue
@@ -72,9 +72,9 @@ for t in range(int(input())):
         a[x][y] = '.'
         y = ny
       a[x][y] = d
-    elif s[i] == 'R':
+    elif m[i] == 'R':
       d = '>'
-      ny = y + 1
+      ny = y+1
       if ny < 0 or ny >= w:
         a[x][y] = d
         continue
