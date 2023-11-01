@@ -15,8 +15,9 @@ for t in range(int(input())):
       elif s[i] != s[-i-1]:
         if s[-i-1] == '?':
           continue
-        check = False
-        break
+        else:
+          check = False
+          break
     if check:
       print(f'#{t+1} Exist')
     else:
