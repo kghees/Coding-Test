@@ -1,11 +1,14 @@
-result = []
-for t in range(int(input())):
+t = int(input())
+res = []
+for i in range(t):
   a,b,c,d = map(int,input().split())
-  if a/b > c/d:
-    result.append('ALICE')
-  elif a/b < c/d:
-    result.append('BOB')
+  x = a/b
+  y = c/d
+  if x == y:
+    res.append('DRAW')
+  elif x > y:
+    res.append('ALICE')
   else:
-    result.append('DRAW')
-for k in range(t+1):
-  print(f'#{k+1} {result[k]}')
+    res.append('BOB')
+for k in range(t):
+  print(f'#{k+1} {res[k]}')
