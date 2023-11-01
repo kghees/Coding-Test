@@ -1,22 +1,22 @@
-k = 1000
-num = [True]*(k+1)
+max = 1000
+num = [True]*max
 num[0],num[1] = False,False
-for i in range(2, int(k**0.5)+1):
+for i in range(2, int(max**0.5)+1):
   if num[i]:
-    for j in range(i*2, k+1,i):
+    for j in range(i*2,max,i):
       num[j] = False
-arr = []
-for i in range(k+1):
+ans = []
+for i in range(max):
   if num[i]:
-    arr.append(i)
+    ans.append(i)
 for t in range(int(input())):
   n = int(input())
   cnt = 0
-  for i in range(len(arr)):
-    if arr[i] < n:
-      for j in range(i,len(arr)):
-        if arr[j] < n:
-          for k in range(j,len(arr)):
-            if arr[i] + arr[j] + arr[k] == n:
+  for i in range(len(ans)):
+    if ans[i] < n:
+      for j in range(i,len(ans)):
+        if ans[j] < n:
+          for k in range(j,len(ans)):
+            if ans[i]+ans[j]+ans[k] == n:
               cnt += 1
   print(f'#{t+1} {cnt}')
