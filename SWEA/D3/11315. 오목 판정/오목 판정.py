@@ -23,8 +23,11 @@ for t in range(int(input())):
       if a[i][j] == 'o':
         if omok(i,j):
           check = True
+          break
         else:
           continue
+    if check:
+      break
   if check:
     print(f'#{t+1} YES')
   else:
