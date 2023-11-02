@@ -9,7 +9,7 @@ def chess(x,y):
       if not (0 <= nx < 8 and 0 <= ny < 8):
         break
       if a[nx][ny] == 'O':
-        break
+        return False
       if a[nx][ny] == '.':
         cnt += 1
       nx += dx[k]
