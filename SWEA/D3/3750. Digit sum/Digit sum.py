@@ -1,12 +1,13 @@
-res = []
 t = int(input())
+res = []
 for _ in range(t):
   n = input()
-  while len(n) != 1:
-    x = 0
-    for i in range(len(n)):
-      x += int(n[i])
-    n = str(x)
-  res.append(n)
-for k in range(t):
-  print(f'#{k+1} {res[k]}')
+  x = n
+  while len(x) > 1:
+    k = 0
+    for i in x:
+      k += int(i)
+    x = str(k)
+  res.append(x)
+for i in range(t):
+  print(f'#{i+1} {res[i]}')
