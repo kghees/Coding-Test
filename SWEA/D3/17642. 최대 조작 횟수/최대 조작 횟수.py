@@ -1,14 +1,14 @@
-def check(x,y):
-  if x == y:
+def check(a,b):
+  if a == b:
     return 0
-  elif x > y:
+  elif a > b:
     return -1
-  elif abs(x-y) == 1:
+  elif b-a == 1:
     return -1
-  elif abs(x-y) % 2 == 1:
-    return (abs(x-y)-1)//2
-  elif abs(x-y) % 2 == 0:
-    return abs(x-y)//2
+  elif (b-a) % 2 == 1:
+    return ((b-a)-1)//2
+  elif (b-a) % 2 == 0:
+    return (b-a)//2
 for t in range(int(input())):
   a,b = map(int,input().split())
   print(f'#{t+1} {check(a,b)}')
