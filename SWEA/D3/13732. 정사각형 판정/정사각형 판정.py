@@ -3,8 +3,7 @@ def check():
   for i in range(n):
     for j in range(n):
       if d[i][j] == 1:
-        down = 0
-        right = 0
+        down,right = 0,0
         for k in range(i+1,n):
           if d[k][j] == 1:
             down += 1
@@ -18,7 +17,7 @@ def check():
         if down != right:
           return False
         for x in range(i,i+down+1):
-          for y in range(j, j+right+1):
+          for y in range(j,j+right+1):
             if d[x][y] == 1:
               cnt -= 1
             else:
@@ -29,15 +28,14 @@ def check():
 for t in range(int(input())):
   n = int(input())
   a = [list(input()) for _ in range(n)]
-  d = [[0]*n for _ in range(n)]
   cnt = 0
+  d = [[0]*n for _ in range(n)]
   for i in range(n):
     for j in range(n):
       if a[i][j] == '#':
-        d[i][j] = 1
         cnt += 1
-  res = check()
-  if res:
+        d[i][j] = 1
+  if check():
     print(f'#{t+1} yes')
   else:
-    print(f'#{t+1} no')                                    
+    print(f'#{t+1} no')
