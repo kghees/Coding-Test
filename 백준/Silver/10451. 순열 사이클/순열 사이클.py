@@ -1,8 +1,14 @@
-def dfs(x):
-  for i in d[x]:
-    if not check[i]:
-      check[i] = True
-      dfs(i)
+from collections import deque
+def bfs(x):
+  q = deque()
+  q.append(x)
+  check[x] = True
+  while q:
+    x = q.popleft()
+    for i in d[x]:
+      if not check[i]:
+        check[i] = True
+        q.append(i)
 for _ in range(int(input())):
   n = int(input())
   a = list(map(int,input().split()))
@@ -14,7 +20,6 @@ for _ in range(int(input())):
   cnt = 0
   for i in range(1, n+1):
     if not check[i]:
-      check[i] = True
-      dfs(i)
+      bfs(i)
       cnt += 1
   print(cnt)
