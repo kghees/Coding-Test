@@ -2,41 +2,17 @@ for t in range(1,11):
   n = int(input())
   a = list(input())
   stack = []
-  check = True
+  left = ['(','[','{','<']
+  right = [')',']','}','>']
   for i in a:
-    if i == '(':
-      stack.append('(')
-    elif i == ')':
-      if stack and stack[-1] == '(':
+    if i in left:
+      stack.append(i)
+    if i in right:
+      if right.index(i) == left.index(stack[-1]):
         stack.pop()
       else:
-        check = False
         break
-    elif i == '[':
-      stack.append('[')
-    elif i == ']':
-      if stack and stack[-1] == '[':
-        stack.pop()
-      else:
-        check = False
-        break
-    elif i == '{':
-      stack.append('{')
-    elif i == '}':
-      if stack and stack[-1] == '{':
-        stack.pop()
-      else:
-        check = False
-        break
-    elif i == '<':
-      stack.append('<')
-    elif i == '>':
-      if stack and stack[-1] == '<':
-        stack.pop()
-      else:
-        check = False
-        break
-  if check and not stack:
-    print(f'#{t} 1')
-  else:
+  if stack:
     print(f'#{t} 0')
+  else:
+    print(f'#{t} 1')
