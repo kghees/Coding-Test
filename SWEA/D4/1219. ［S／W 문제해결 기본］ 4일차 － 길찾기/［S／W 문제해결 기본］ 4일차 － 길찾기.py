@@ -1,20 +1,15 @@
 def dfs(x):
-  if x == 99:
-    return True
+  check[x] = 1
   for i in d[x]:
-     if not check[i]:
-      check[i] = True
-      if dfs(i):
-        return True
-for _ in range(1,11):
+    if not check[i]:
+      dfs(i)
+  return
+for _ in range(10):
   t,n = map(int,input().split())
   a = list(map(int,input().split()))
   d = [[] for _ in range(100)]
   for i in range(0,len(a),2):
     d[a[i]].append(a[i+1])
-  check = [False]*100
-  check[0] = True
-  if dfs(0):
-    print(f'#{t} 1')
-  else:
-    print(f'#{t} 0')
+  check = [0]*100
+  dfs(0)
+  print(f'#{t} {check[99]}')
