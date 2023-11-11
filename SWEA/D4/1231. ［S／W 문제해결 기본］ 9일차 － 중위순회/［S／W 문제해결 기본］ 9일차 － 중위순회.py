@@ -5,7 +5,7 @@ def inorder(x):
     inorder(x*2+1)
 for t in range(1,11):
   n = int(input())
-  tree = [[0] for _ in range(n+1)]
+  tree = [0]*(n+1)
   for i in range(n):
     a = input().split()
     tree[int(a[0])] = a[1]
