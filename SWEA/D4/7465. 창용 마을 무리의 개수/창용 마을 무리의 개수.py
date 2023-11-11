@@ -1,8 +1,14 @@
-def dfs(x):
+from collections import deque
+def bfs(x):
+  q = deque()
+  q.append(x)
   check[x] = True
-  for i in a[x]:
-    if not check[i]:
-      dfs(i)
+  while q:
+    x = q.popleft()
+    for i in a[x]:
+      if not check[i]:
+        check[i] = True
+        q.append(i)
 for t in range(int(input())):
   n,m = map(int,input().split())
   a = [[] for _ in range(n+1)]
@@ -15,5 +21,5 @@ for t in range(int(input())):
   for i in range(1, n+1):
     if not check[i]:
       cnt += 1
-      dfs(i)
+      bfs(i)
   print(f'#{t+1} {cnt}')
