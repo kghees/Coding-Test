@@ -1,10 +1,15 @@
-n, m = map(int,input().split())
-a = [0]*m
-def go(index,start,n,m):
-  if index == m:
+def dfs(x,start):
+  if x == m:
     print(*a)
     return
   for i in range(start, n+1):
-    a[index] = i
-    go(index+1,i+1,n,m)
-go(0,1,n,m)
+    if not check[i]:
+      check[i] = True
+      a.append(i)
+      dfs(x+1,i+1)
+      check[i] = False
+      a.pop()
+n,m = map(int,input().split())
+check = [False]*(n+1)
+a = []
+dfs(0,1)
