@@ -1,15 +1,14 @@
-t = int(input())
-for k in range(t):
+for t in range(int(input())):
   n = int(input())
   a = list(map(int,input().split()))
-  ans = a[::-1]
+  a = a[::-1]
+  res = 0
   x = 0
-  result = 0
-  for i in ans:
+  for i in a:
     if x < i:
       x = i
-    result += x - i
-  if result > 0:
-    print(f'#{k+1} {result}')
+    res += x - i
+  if res > 0:
+    print(f'#{t+1} {res}')
   else:
-    print(f'#{k+1} {0}')
+    print(f'#{t+1} 0')
