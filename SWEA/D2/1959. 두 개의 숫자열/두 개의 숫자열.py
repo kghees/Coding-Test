@@ -1,15 +1,23 @@
 for t in range(int(input())):
-  n, m = map(int,input().split())
+  a,b = map(int,input().split())
   arr = list(map(int,input().split()))
   brr = list(map(int,input().split()))
-  if n > m:
-    n, m = m, n
-    arr, brr = brr, arr
-  result = 0
-  for i in range(m-n+1):
-    cnt = 0
-    for j in range(n):
-      cnt += arr[j] * brr[i+j]
-    if cnt > result:
-      result = cnt
-  print(f'#{t+1} {result}')
+  res = 0
+  if a < b:
+    for i in range(b-a+1):
+      x = 0
+      for j in range(a):
+        x += arr[j]*brr[i+j]
+      if res < x:
+        res = x
+  elif a > b:
+    for i in range(a-b+1):
+      x = 0
+      for j in range(b):
+        x += brr[j]*arr[i+j]
+      if res < x:
+        res = x
+  else:
+    for i in range(a):
+      res += arr[i]*brr[i]
+  print(f'#{t+1} {res}')
