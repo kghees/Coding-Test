@@ -1,14 +1,13 @@
-t = int(input())
-for k in range(t):
+for t in range(int(input())):
   n = int(input())
   a = list(map(int,input().split()))
-  d = [0]*1001
-  for i in a:
-    d[i] += 1
-  result = 0
-  cnt = 0
-  for i in range(len(d)):
-    if d[i] >= result:
-      result = d[i]
-      cnt = i
-  print(f'#{k+1} {cnt}')
+  num = [0]*1001
+  for i in range(len(a)):
+    num[a[i]] += 1
+  x = 0
+  res = 0
+  for i in range(len(num)):
+    if res <= num[i]:
+      res = num[i]
+      x = i
+  print(f'#{t+1} {x}')
