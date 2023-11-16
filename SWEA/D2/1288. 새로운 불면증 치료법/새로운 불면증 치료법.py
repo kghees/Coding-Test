@@ -2,8 +2,10 @@ for t in range(int(input())):
   n = int(input())
   num = [0]*10
   cnt = 1
-  while 0 in num:
-    x = str(cnt * n)
+  while True:
+    if 0 not in num:
+      break
+    x = str(n*cnt)
     for i in x:
       num[int(i)] += 1
     cnt += 1
