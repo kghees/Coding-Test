@@ -1,7 +1,7 @@
 for t in range(int(input())):
   n = int(input())
   a = [list(map(int,input().split())) for _ in range(n)]
-  a_90 =[[0]*n for _ in range(n)]
+  a_90 = [[0]*n for _ in range(n)]
   a_180 = [[0]*n for _ in range(n)]
   a_270 = [[0]*n for _ in range(n)]
   for i in range(n):
