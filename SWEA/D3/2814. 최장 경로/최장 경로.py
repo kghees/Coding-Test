@@ -1,10 +1,10 @@
-def dfs(x,k):
-  global cnt
-  cnt = max(cnt,k)
+def dfs(x,cnt):
+  global res
+  res = max(res,cnt)
   for i in a[x]:
     if not check[i]:
       check[i] = True
-      dfs(i,k+1)
+      dfs(i,cnt+1)
       check[i] = False
 for t in range(int(input())):
   n,m = map(int,input().split())
@@ -13,9 +13,9 @@ for t in range(int(input())):
     u,v = map(int,input().split())
     a[u].append(v)
     a[v].append(u)
-  cnt = 1
-  for i in range(1,n+1):
+  res = 1
+  for i in range(1, n+1):
     check = [False]*(n+1)
     check[i] = True
     dfs(i,1)
-  print(f'#{t+1} {cnt}')
+  print(f'#{t+1} {res}')
