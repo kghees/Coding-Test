@@ -1,4 +1,4 @@
-for t in range(1,11):
+for t in range(10):
   n = int(input())
   a = list(map(int,input().split()))
   m = int(input())
@@ -11,11 +11,9 @@ for t in range(1,11):
       a[x:x] = num
     elif b[i] == 'D':
       x = int(b[i+1])
-      y = int(b[i+1])
+      y = int(b[i+2])
       del a[x:x+y]
     elif b[i] == 'A':
       x = int(b[i+1])
-      num = b[i+2:i+2+x]
-      a.append(num)
-  print(f'#{t}',end=' ')
-  print(*a[:10])
+      a.append(b[i+2:i+2+x])
+  print(f'#{t+1}',*a[:10])
