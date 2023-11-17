@@ -2,15 +2,14 @@ for t in range(1,11):
   n = int(input())
   a = list(map(int,input().split()))
   res = 0
-  for i in range(2, len(a)-1):
-    check = False
-    for k in [-2,-1,1,2]:
-      if a[i] > a[i+k]:
-        check = True
-      else:
-        check = False
+  num = [-2,-1,1,2]
+  for i in range(2, len(a)-2):
+    ans = []
+    for k in range(4):
+      if a[i] < a[i+num[k]]:
         break
-    if check:
-      ans = max(a[i-2],a[i-1],a[i+1],a[i+2])
-      res += a[i] - ans
+      else:
+        ans.append(a[i+num[k]])
+    if len(ans) == 4:
+      res += a[i] - max(ans)
   print(f'#{t} {res}')
