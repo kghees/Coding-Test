@@ -1,14 +1,14 @@
 for t in range(int(input())):
   n = input()
   check = False
-  num = n
+  x = n
   i = 2
   while True:
-    num = list(str(int(n)*i))
+    x = str(int(n)*i)
     i += 1
-    if len(n) != len(num):
+    if len(n) != len(x):
       break
-    if set(n) == set(num):
+    if set(x) == set(n):
       check = True
       break
   if check:
