@@ -1,11 +1,11 @@
-for t in range(1,11):
-  a, s = input().split()
-  ans = []
-  for i in s:
-    if not ans:
-      ans.append(i)
-    elif ans and ans[-1] == i:
-      ans.pop()
+for t in range(10):
+  n, m = input().split()
+  stack = []
+  for i in m:
+    if not stack:
+      stack.append(i)
+    elif stack and stack[-1] == i:
+      stack.pop()
     else:
-      ans.append(i)
-  print(f'#{t}',''.join(ans))
+      stack.append(i)
+  print(f'#{t+1}',''.join(stack))
