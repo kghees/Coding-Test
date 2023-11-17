@@ -1,12 +1,12 @@
 for t in range(int(input())):
   n = int(input())
   a = [list(input()) for _ in range(n)]
-  x,y = n//2,n//2
   res = 0
+  x,y = n//2,n//2
   for i in range(n):
     for j in range(x,y+1):
       res += int(a[i][j])
-    if i < n//2:
+    if n//2 > i:
       x -= 1
       y += 1
     else:
