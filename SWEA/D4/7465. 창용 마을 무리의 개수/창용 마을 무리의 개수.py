@@ -17,9 +17,9 @@ for t in range(int(input())):
     a[u].append(v)
     a[v].append(u)
   check = [False]*(n+1)
-  cnt = 0
+  res = 0
   for i in range(1, n+1):
     if not check[i]:
-      cnt += 1
+      res += 1
       bfs(i)
-  print(f'#{t+1} {cnt}')
+  print(f'#{t+1} {res}')
