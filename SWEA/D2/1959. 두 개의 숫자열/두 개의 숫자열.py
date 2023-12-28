@@ -1,23 +1,23 @@
 for t in range(int(input())):
-  a,b = map(int,input().split())
-  arr = list(map(int,input().split()))
-  brr = list(map(int,input().split()))
+  n,m = map(int,input().split())
+  a = list(map(int,input().split()))
+  b = list(map(int,input().split()))
   res = 0
-  if a < b:
-    for i in range(b-a+1):
+  if len(a) > len(b):
+    for i in range(len(a)-len(b)+1):
       x = 0
-      for j in range(a):
-        x += arr[j]*brr[i+j]
+      for j in range(len(b)):
+        x += a[i+j]*b[j]
       if res < x:
         res = x
-  elif a > b:
-    for i in range(a-b+1):
+  elif len(a) < len(b):
+    for i in range(len(b)-len(a)+1):
       x = 0
-      for j in range(b):
-        x += brr[j]*arr[i+j]
+      for j in range(len(a)):
+        x += a[j]*b[i+j]
       if res < x:
         res = x
   else:
-    for i in range(a):
-      res += arr[i]*brr[i]
-  print(f'#{t+1} {res}')
+    for i in range(len(a)):
+      res += a[i]*b[i]
+  print(f'#{t+1} {res}') 
