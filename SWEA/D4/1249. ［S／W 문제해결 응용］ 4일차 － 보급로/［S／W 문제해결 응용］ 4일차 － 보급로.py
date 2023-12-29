@@ -9,7 +9,7 @@ def bfs(x,y):
     for k in range(4):
       nx = x + dx[k]
       ny = y + dy[k]
-      if (0 <= nx < n and 0 <= ny < n):
+      if(0 <= nx < n and 0 <= ny < n):
         if ans[x][y] + a[nx][ny] < ans[nx][ny]:
           ans[nx][ny] = ans[x][y] + a[nx][ny]
           q.append((nx,ny))
