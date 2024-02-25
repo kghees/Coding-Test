@@ -51,8 +51,8 @@ int main() {
                     cnt++;
                 }
             }
-            res = max(cnt, res);
         }
+        res = max(cnt, res);
         memset(check, false, sizeof(check));
     }
     cout << res;
